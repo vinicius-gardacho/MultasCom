@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[Table(name: 'pontuacao_condutor', key: 'id_pontuacao', timestamps: false)]
 class PontuacaoCondutor extends Model
 {
+    use UsesExistingSchema;
 
     /**
      * Get the attributes that should be cast.

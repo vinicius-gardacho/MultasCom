@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Table(name: 'orgao_aplicador', key: 'id_orgao', timestamps: false)]
 class OrgaoAplicador extends Model
 {
+    use UsesExistingSchema;
 
     /**
      * Multas aplicadas pelo órgão (multa.orgao_id).

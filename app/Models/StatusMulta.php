@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Table(name: 'status_multa', key: 'id_status', timestamps: false)]
 class StatusMulta extends Model
 {
+    use UsesExistingSchema;
 
     /**
      * Multas com este status (multa.status_id).

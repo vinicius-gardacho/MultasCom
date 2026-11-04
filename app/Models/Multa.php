@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 #[Table(name: 'multa', key: 'id_multa', timestamps: false)]
 class Multa extends Model
 {
+    use UsesExistingSchema;
 
     /**
      * Get the attributes that should be cast.

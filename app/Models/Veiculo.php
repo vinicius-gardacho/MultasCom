@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Table(name: 'veiculo', key: 'id_veiculo', timestamps: false)]
 class Veiculo extends Model
 {
+    use UsesExistingSchema;
 
     /**
      * Get the attributes that should be cast.
