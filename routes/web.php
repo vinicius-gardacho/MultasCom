@@ -5,23 +5,17 @@ use App\Http\Controllers\CondutorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MultaController;
 use App\Http\Controllers\OrgaoAplicadorController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\VeiculoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'create'])->name('login');
+    Route::post('/login', [LoginController::class, 'store']);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
     Route::get('/', DashboardController::class)->name('dashboard');
 
@@ -46,5 +40,3 @@ Route::middleware('auth')->group(function () {
         Route::get('/cnh-proximas-vencer/pdf', 'cnhProximasVencerPdf')->name('cnh-proximas-vencer.pdf');
     });
 });
-
-require __DIR__.'/auth.php';

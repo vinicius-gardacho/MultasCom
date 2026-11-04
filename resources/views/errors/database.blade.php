@@ -1,0 +1,1 @@
+<x-error-page code="503" title="Banco de dados indisponível" message="Não foi possível consultar o banco de dados no momento. Verifique a conexão e tente novamente em instantes. Os detalhes técnicos foram registrados no log da aplicação." />
