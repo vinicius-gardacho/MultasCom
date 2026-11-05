@@ -405,18 +405,3 @@ O projeto não possui migrations nem seeders. Comandos seguros: `db:show`, `rout
 - Os dados foram gerados para o trabalho acadêmico e são fictícios.
 
 ---
-
-## 13. Limitações e sugestões futuras
-
-As sugestões abaixo dependem de alterações no banco ou de credenciais com permissão de
-escrita e **só devem ser feitas com autorização**:
-
-- **Cadastro e edição** de multas, registro de pagamento e mudança de status: exigem um
-  usuário com permissão de escrita (o usuário `professor` possui apenas `SELECT`).
-- **Exclusões:** as chaves estrangeiras de `multa` e `pontuacao_condutor` usam
-  `ON DELETE SET NULL` em colunas `NOT NULL`, o que faria uma exclusão falhar; seria preciso
-  rever essas restrições.
-- **Múltiplos usuários e perfis:** exigiriam uma tabela de usuários no lugar da credencial
-  única do `.env`.
-- **Desempenho:** índices em `multa(status_id)`, `multa(orgao_id)` e
-  `multa(data_hora_infracao)` ajudariam se o volume de dados crescer.
