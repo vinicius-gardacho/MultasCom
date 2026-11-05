@@ -21,11 +21,14 @@
         <env name="APP_ENV" value="testing"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="ADMIN_USERNAME" value="admin" force="true"/>
+        <!-- Hash bcrypt da senha fictícia "senha-de-teste", usada apenas nos testes. -->
+        <env name="ADMIN_PASSWORD_HASH" value="$2y$04$YTZvGGWnJmI8BU1XvVF7vOlD/8buChIMZR38QKQgAW6ZYDl2SSZRu" force="true"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
         <env name="CACHE_STORE" value="array"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
-        <env name="DB_URL" value=""/>
+        <env name="DB_CONNECTION" value="sqlite" force="true"/>
+        <env name="DB_DATABASE" value=":memory:" force="true"/>
+        <env name="DB_URL" value="" force="true"/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>

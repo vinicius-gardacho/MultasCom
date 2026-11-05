@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\User;
-
 return [
 
     /*
@@ -57,14 +55,19 @@ return [
     | providers to represent the model / table. These providers may then
     | be assigned to any extra authentication guards you have defined.
     |
-    | Supported: "database", "eloquent"
+    | Supported: "database", "eloquent", "env"
+    |
+    | O MultasCom usa o provedor "env" (App\Auth\EnvUserProvider), com um
+    | único usuário definido no .env, pois o banco existente não possui
+    | tabela de usuários e não deve ser alterado.
     |
     */
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'driver' => 'env',
+            'username' => env('ADMIN_USERNAME'),
+            'password_hash' => env('ADMIN_PASSWORD_HASH'),
         ],
 
         // 'users' => [
